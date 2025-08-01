@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>フェンシング動画タグシステム</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed; /* 列の幅を均等にする */
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+            width: 10%; /* 各列の幅を均等に設定 */
+        }
+        .tag-btn {
+            padding: 5px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>フェンシング動画タグシステム</h1>
+
+        <!-- 動画アップロードフォーム -->
+        <input type="file" id="videoFile" accept="video/*">
+        <div id="videoWrapper" style="position: relative; width: fit-content;">
+            <video id="videoPlayer" controls style="display: block; width: 100%; max-width: 600px; margin-top: 20px;"></video>
+            <div id="timelineBar" style="
+                position: relative;
+                height: 8px;
+                background-color: #ccc;
+                margin: 4px auto 0;
+                border-radius: 10px;
+                cursor: pointer;
+            "></div>
+        </div>
+
+        <!-- <div id="frameControls">
+            <button id="prevFrame">前のフレーム</button>
+            <input type="number" id="frameNumber" placeholder="フレーム番号" min="1">
+            <button id="goToFrame">指定フレームへ</button>
+            <button id="nextFrame">次のフレーム</button>
+        </div>
+        <div id="frameDisplay">
+            <img id="currentFrame" alt="フレーム画像がここに表示されます">
+        </div> -->
+
+        <!-- <input type="text" id="tagSearch" placeholder="タグを検索..."> -->
+        <div>
+            <label for="movementSelect">前動作:</label>
+            <select id="movementSelect">
+                <option value="なし">なし</option>
+                <option value="前進">前進</option>
+                <option value="後退">後退</option>
+            </select>
+        </div>
+        <div>
+            <!-- プレイヤー選択 -->
+            <label>選手を選択：</label>
+            <label><input type="radio" name="playerSelect" value="左" checked>左</label>
+            <label><input type="radio" name="playerSelect" value="右">右</label>
+        </div>
+        <div>
+        <label>得点：</label>
+        <label><input type="radio" name="scoreSelect" value="成功" checked>成功</label>
+        <label><input type="radio" name="scoreSelect" value="失敗">失敗</label>
+        </div>
+        
+        <div class="buttons">
+            <button class="tag-btn" id="attack-fant">アタック(ファント)</button>
+            <button class="tag-btn" id="attack-hurikomi-fant">アタック(振り込みファント)</button>
+            <button class="tag-btn" id="attack-fresh">アタック(フレッシュ)</button>
+            <button class="tag-btn" id="attack-hurikomi">アタック(振り込みフレッシュ)</button>
+            <button class="tag-btn" id="contol">コントルアタック</button><br>
+            <button class="tag-btn" id="contol-fresh">コントルアタック(フレッシュ)</button>
+            <button class="tag-btn" id="batte">バッテアタック</button>
+            <button class="tag-btn" id="makikomi">巻き込みアタック</button>
+            <button class="tag-btn" id="rumise">ルミーズ</button>
+            <button class="tag-btn" id="parad-ripost">パラードリポスト</button>
+            <button class="tag-btn" id="makikomi-parad">巻き込みパラードリポスト</button>
+        </div>
+        
+        <h2>ログ（左選手）</h2>
+        <table id="logTableLeft">
+            <thead>
+                <tr>
+                    <th>選手</th>
+                    <th>動き</th> <!-- movement -->
+                    <th>アクション</th> <!-- まとめたアクション -->
+                    <th>時刻</th> <!-- timestamp -->
+                    <th>得点</th>
+                    <th>削除</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ログデータがここに追加されます -->
+            </tbody>
+        </table>
+
+        <h2>ログ（右選手）</h2>
+        <table id="logTableRight">
+            <thead>
+                <tr>
+                    <th>選手</th>
+                    <th>動き</th> <!-- movement -->
+                    <th>アクション</th> <!-- まとめたアクション -->
+                    <th>時刻</th> <!-- timestamp -->
+                    <th>得点</th>
+                    <th>削除</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ログデータがここに追加されます -->
+            </tbody>
+        </table>
+
+        <button id="downloadBtn">CSVダウンロード</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- <script src="script2.js"></script> -->
+</body>
+</html>

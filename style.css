@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#videoWrapper {
+    position: relative;
+    width: fit-content;
+}
+  
+#timelineBar {
+    height: 8px;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.timeline-marker:hover {
+    background-color: yellow;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tag-btn {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+}
+
+.tag-btn:hover {
+    background-color: #0056b3;
+}
+
+#logTable {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;  /* セルの境界線を重ねないようにする */
+    border: 1px solid black;  /* テーブル全体に枠線を設定 */
+}
+
+#logTable th, #logTable td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd; /* 各セルに枠線を追加 */
+    box-sizing: border-box;  /* 内部のパディングと境界線を含める */
+}
+
+#logTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+#logTable td {
+    background-color: #ffffff;
+}
+
+#downloadBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+}
+
+#downloadBtn:hover {
+    background-color: #218838;
+}
